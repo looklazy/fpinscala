@@ -33,7 +33,7 @@ FP는 프로그램을 작성하는 방식에 대한 제약이지 표현 가능�
 ### 1.1.1 부수 효과가 있는 프로그램
 
 ```scala
-clsss Cafe {
+class Cafe {
   def buyCoffee(cc: CreditCard): Coffee = {
     val cup = new Coffee()
     cc.charge(cup.price)
@@ -64,7 +64,7 @@ class Cafe {
 
 ### 1.1.2 함수적 해법: 부수 효과의 제거
 
-이에 대한 함수적 해법은 부수 효과를 제거하고 `buyCoffe`가 `Coffee`뿐만 아니라 **청구서(Charge)**를 돌려주게 하는 것이다.
+이에 대한 함수적 해법은 부수 효과를 제거하고 `buyCoffee`가 `Coffee`뿐만 아니라 **청구서(Charge)**를 돌려주게 하는 것이다.
 
 ```scala
 class Cafe {
@@ -100,7 +100,7 @@ class Cafe {
 `buyCoffee`를 직접 재사용하여 `buyCoffees` 함수를 정의하였으며, 두 함수 모두 `Payments` 인터페이스의 Mock 없이도 쉽게 테스트를 작성할 수 있게 되었다. `Charge`를 일급 함수로 만들면 이를 조합하여 같은 카드에 대한 청구서들을 하나의 `List[Charge]`로 취합하는 것도 가능하다.
 
 ```scala
-def coalesce(charages: List[Charge]): List[Charge] =
+def coalesce(charges: List[Charge]): List[Charge] =
   charges.groupBy(_.cc).values.map(_.reduce(_ combine _)).toList
 ```
 
@@ -180,4 +180,4 @@ def buyCoffee(cc: CreditCard): Coffee = {
   r2: java.lang.String = Hello, World, World // 이제 r1과 r2는 같지 않다.
   ```
 
-참조에 투명하지 않은 함수의 경우 `r1`과 `r2`가 같은 표현식처럼 보이지만 `r2`가 `x.append`를 호출하는 시점에서 `r1`으로 인해 `x`가 참조하는 객체를 변이시켰다. 부수 효과로 인해 프로그램 결과에 대한 추론이 어려워지는 예이다. 반면 치환 모형은 부수 효과가 평가되는 표현식 자체에만 영향을 미치므로 **국소 추론(local reasoning)** 만으로 코드를 이해할 수 있다.
+참조에 투명하지 않은 함수의 경우 `r1`과 `r2`가 같은 표현식처럼 보이지만 `r2`가 `x.append`를 호출하는 시점에서 `r1`으로 인해 `x`가 참조하는 객체가 변이되었다. 부수 효과로 인해 프로그램 결과에 대한 추론이 어려워지는 예이다. 반면 치환 모형은 부수 효과가 평가되는 표현식 자체에만 영향을 미치므로 **국소 추론(local reasoning)** 만으로 코드를 이해할 수 있다.
