@@ -134,7 +134,7 @@ def buyCoffee(cc: CreditCard): Coffee = {
 
 - 참조에 투명한 함수의 예.
 
-  ```scala
+  ```
   scala> val x = "Hello, World"
   x: java.lang.String = Hello, World
     
@@ -155,7 +155,7 @@ def buyCoffee(cc: CreditCard): Coffee = {
 	
 - 참조에 투명하지 않은 함수의 예.
 
-  ```scala
+  ```
   scala> val x = new StringBuilder("Hello")
   x: java.lang.StringBuilder = Hello
     
