@@ -7,4 +7,4 @@ Contents
 --------
 1. [What is functional programming?](./wiki/chapter01.md)
 2. [Getting started with functional programming in scala](./wiki/chapter02.md)
-3. Functional data structures
+3. [Functional data structures](./wiki/chapter03.md)
