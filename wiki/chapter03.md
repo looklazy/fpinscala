@@ -37,8 +37,8 @@ object List {
 - `Nil`과 `Cons`는 `List`의 두 가지 구현, 즉 두 가지 **자료 생성자(data constructor)**이다.
 - 형식 매개 변수 A에 있는 `+`는 **공변(covariant)**을 뜻한다.
 
-> **공변과 불변에 대해**
-> 
+###### 공변과 불변에 대해
+
 > `trait List[+A]` 선언에서 `A` 앞의 `+`는 `A`가 `List`의 **공변(covariant)** 매개 변수임을 뜻하는 **가변 지정자(variance annotation; 가변 주해)**로서, 양의(positive) 매개변수라고 하기도 한다.
 > 
 > 예를 들어, `Dog`가 `Animal`의 하위형식이면 `List[Dog]`가 `List[Animal]`의 하위형식으로 간주된다.
@@ -228,7 +228,7 @@ def product2(ns: List[Double]) =
   foldRight(ns, 1.0)(_ * _)
 ```
 
-> **익명 함수를 위한 밑줄 표기법**
+###### 익명 함수를 위한 밑줄 표기법
 > 
 > `x`와 `y`의 형식을 추론할 수 있다면, `(x, y) => x + y`를 `_ + _`으로 표기할 수 있다. `_`는 함수 매개변수들이 함수 본문 안에서 한 번씩만 언급될 때 유용한 단축 표기법이며 인수는 왼쪽부터 순서대로 바인딩된다.
 > 
@@ -336,7 +336,7 @@ foldRight(Cons(1, Cons(2, Cons(3, Nil))), 0)((x, y) => x + y)
 
 > 연습문제 3.22의 함수를 정수나 덧셈에 국한되지 않도록 일반화하라. 함수의 이름은 zipWith로 할 것.
 
-##### 표준 라이브러리의 목록들
+#### 표준 라이브러리의 목록들
 
 스칼라 표준 라이브러리의 [`List`](http://www.scala-lang.org/api/current/scala/collection/immutable/List.html)에서는 `Cons`를 `::`으로 부르며 `::`는 오른쪽으로 연관(right-associate)된다.
 
@@ -404,7 +404,7 @@ case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
 
 > size와 maximum, depth, map의 유사성을 요약해서 일반화한 새 함수 fold를 작성하라. 그런 다음 그 함수들을 새 fold를 이용해서 다시 구현하라. 이 fold 함수와 List에 대한 왼쪽, 오른쪽 fold 사이의 유사성을 찾아낼 수 있는가?
 
-##### ADT와 캡슐화
+###### ADT와 캡슐화
 
 > 대수적 자료 형식이 형식의 내부 표현을 공용(public)으로 노출하므로 캡슐화(encapsulation)를 위반한다고 생각할 수 있으나 FP에서는 캡슐화 문제를 다르게 취급한다.
 > 
