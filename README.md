@@ -10,7 +10,7 @@
 3. [Functional data structures](./wiki/chapter03.md)
 4. [Handling errors without exceptions](./wiki/chapter04.md)
 5. Strictness and laziness
-6. Purely functional state
+6. [Purely functional state](./wiki/chapter06.md)
 
 ## Part 2 Functional design and combinator libraries
 
